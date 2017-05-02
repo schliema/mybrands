@@ -1,11 +1,15 @@
 // @flow
 
-import React from 'react'
+import * as React from 'react'
 
+export type BrandType = {
+  name: string,
+  imageLocation: string
+}
 
-const Brand = (props: {name: string, imageLocation: string}) => (
+const Brand = ({name, imageLocation}: BrandType) => (
   <div className="brand">
-    <img src={props.imageLocation} alt={props.name}/>
+    <img src={imageLocation} alt={name}/>
   </div>
 )
 

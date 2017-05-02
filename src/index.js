@@ -1,11 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// @flow
+
+import * as React from 'react'
+import { render }  from 'react-dom'
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
 import brandApp from './reducers'
-import App from './App';
-import './index.css';
-import './App.css';
+import App from './App'
+import './index.css'
+import './App.css'
 
 const initialState = {
   brands: [
@@ -27,11 +29,11 @@ let store = createStore(
   brandApp,
   initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+)
 
-ReactDOM.render(
+render(
   <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')
-);
+)

@@ -1,12 +1,17 @@
 // @flow
 
-import React from 'react'
+import * as React from 'react'
 import Brand from './Brand'
+import type { BrandType } from './Brand'
 
-const BrandBanner = (props: {brands:[{name: string, imageLocation: string}]}) => (
+export type BrandsType = {
+  brands: BrandType[]
+}
+
+const BrandBanner = ({brands} : BrandsType) => (
   <div className="brandBanner">
-    {props.brands.map(myBrand =>
-      <Brand name={myBrand.name} imageLocation={myBrand.imageLocation} />
+    {brands.map(myBrand =>
+      <Brand key={myBrand.name} name={myBrand.name} imageLocation={myBrand.imageLocation} />
     )}
   </div>
 )

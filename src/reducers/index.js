@@ -1,3 +1,5 @@
+// @flow
+
 import { combineReducers } from 'redux'
 import brands from './brands'
 
