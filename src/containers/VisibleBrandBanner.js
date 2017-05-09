@@ -7,7 +7,9 @@ import type { BrandsType } from '../Types'
 
 const mapStateToProps = (state: BrandsType) => {
   return {
-    brands: state.brands
+    brands: state.brands.brands,
+    pending: state.brands.pending,
+    error: state.brands.error
   }
 }
 

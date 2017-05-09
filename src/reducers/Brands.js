@@ -1,13 +1,28 @@
 // @flow
 
-import type { BrandType } from '../Types'
+import type { BrandsType } from '../Types'
 import type { ActionType } from '../Types'
 
 
-const brands = (state : BrandType[] = [], action: ActionType<string>) : BrandType[] => {
+const brands = (state : BrandsType = {pending: false, error: null, brands: []}, action: ActionType<string>) : BrandsType => {
   switch (action.type) {
+    case 'GET_BRANDS_REJECTED':
+      return {
+        ...state,
+        pending: false,
+        error: action.payload
+      }
+    case 'GET_BRANDS_PENDING':
+      return {
+        ...state,
+        pending: true
+      }
     case 'GET_BRANDS_FULFILLED':
-      return action.payload.data
+      return {
+        ...state,
+        pending: false,
+        brands: action.payload.data
+      }
     default:
       return state
   }

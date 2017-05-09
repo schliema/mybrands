@@ -29,16 +29,38 @@ const BrandList = styled.div`
   background: ghostwhite;
 `
 
-const BrandBanner = ({brands, onButtonClick}: BrandBannerType) => (
+const errorMessage = () => (
+  <BrandList>
+    <div>ERROR!!</div>
+  </BrandList>
+)
+
+const pendingMessage = () => (
+  <BrandList>
+    <img height="50" width="50" src='http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_red_512.gif'
+         alt='wait'/>
+  </BrandList>
+)
+
+const brandList = (brands) => (
+  <BrandList>
+    {brands.map(myBrand =>
+      <Brand key={myBrand.index} name={myBrand.name} imageLocation={myBrand.imageLocation}/>
+    )}
+  </BrandList>
+)
+
+const BrandBanner = ({brands, pending, error, onButtonClick}: BrandBannerType) => (
   <BrandContainer>
     <div>
       <Button onClick={(event: Event) => {onButtonClick()}}>Click!</Button>
     </div>
-    <BrandList>
-      {brands.map(myBrand =>
-        <Brand key={myBrand.index} name={myBrand.name} imageLocation={myBrand.imageLocation} />
-      )}
-    </BrandList>
+    {error ? (errorMessage()) : (
+      pending ? (pendingMessage()) : (
+          brandList(brands)
+        )
+      )
+    }
   </BrandContainer>
 )
 

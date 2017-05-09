@@ -7,6 +7,8 @@ export type BrandType = {
 }
 
 export type BrandsType = {
+  pending: boolean
+  error: any
   brands: BrandType[]
 }
 
