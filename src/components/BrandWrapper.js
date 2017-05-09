@@ -4,7 +4,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import type { BrandType } from '../Types'
 import Brand from './Brand'
-import PageContainer from './PageContainer'
+import PageWrapper from './PageWrapper'
 import MainWrapper from './MainWrapper'
 import PendingBox from './PendingBox'
 
@@ -20,19 +20,19 @@ class BrandWrapper extends React.Component {
   render() {
     if (this.props.currentbrand && this.props.currentbrand.name == this.props.brand) {
       return (
-        <PageContainer>
+        <PageWrapper>
           <MainWrapper>
             <Brand {...this.props.currentbrand}/>
           </MainWrapper>
-        </PageContainer>
+        </PageWrapper>
       )
     } else {
       return (
-        <PageContainer>
+        <PageWrapper>
           <MainWrapper>
             <PendingBox/>
           </MainWrapper>
-        </PageContainer>
+        </PageWrapper>
       )
     }
   }

@@ -11,8 +11,10 @@ import type {ActionType} from './Types'
 import App from './App'
 import Home from './Home'
 import BrandPage from './BrandPage'
-import PageContainer from './components/PageContainer'
+import PageWrapper from './components/PageWrapper'
 import MainWrapper from './components/MainWrapper'
+import Tab from './components/Tab'
+import Tabs from './components/Tabs'
 
 const loggerMiddleWare = store => next => action => {
   console.log('action: ' + action.type)
@@ -56,13 +58,15 @@ const store = createStore(
 render(
   <Provider store={store}>
     <Router>
-      <PageContainer>
-          <Link to='/home'>Home</Link>{' '}
-          <Link to='/brands'>Brands</Link>
+      <PageWrapper>
+          <Tabs>
+            <Tab><Link to='/home'>Home</Link></Tab>
+            <Tab><Link to='/brands'>Brands</Link></Tab>
+          </Tabs>
           <Route path='/home' component={Home}/>
           <Route path='/brands' component={App}/>
           <Route path='/brand/:brand' component={BrandPage}/>
-      </PageContainer>
+      </PageWrapper>
     </Router>
   </Provider>,
   document.getElementById('root')

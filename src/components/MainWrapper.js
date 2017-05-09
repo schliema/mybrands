@@ -8,8 +8,8 @@ const MyDiv = styled.div`
   align-items: center;
   justify-content: center;
   height: 5em;
-  padding: 4em;
-  background: ghostwhite;
+  padding: 1em;
+  background: maroon;
 `
 
 const MainWrapper = ({children}) => (

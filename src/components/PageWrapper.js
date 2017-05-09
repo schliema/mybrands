@@ -6,10 +6,10 @@ const myDiv = styled.div`
   background: maroon;
 `
 
-const PageContainer = ({children}) => (
+const PageWrapper = ({children}) => (
   <myDiv>
     {children}
   </myDiv>
 )
 
-export default PageContainer
+export default PageWrapper
