@@ -4,6 +4,9 @@ import * as React from 'react'
 import styled from 'styled-components'
 import type { BrandType } from '../Types'
 import Brand from './Brand'
+import PageContainer from './PageContainer'
+import MainWrapper from './MainWrapper'
+import PendingBox from './PendingBox'
 
 class BrandWrapper extends React.Component {
 
@@ -17,12 +20,19 @@ class BrandWrapper extends React.Component {
   render() {
     if (this.props.currentbrand && this.props.currentbrand.name == this.props.brand) {
       return (
-        <Brand {...this.props.currentbrand}/>
+        <PageContainer>
+          <MainWrapper>
+            <Brand {...this.props.currentbrand}/>
+          </MainWrapper>
+        </PageContainer>
       )
     } else {
       return (
-        <img height="50" width="50" src='http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_red_512.gif'
-           alt='wait'/>
+        <PageContainer>
+          <MainWrapper>
+            <PendingBox/>
+          </MainWrapper>
+        </PageContainer>
       )
     }
   }
