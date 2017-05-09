@@ -5,5 +5,10 @@ import type { ActionType } from '../Types'
 
 export const getBrands = () : ActionType => ({
   type: 'GET_BRANDS',
-  payload: Axios.get('http://localhost:3006/brands')
+  payload: Axios.get('/brands')
+})
+
+export const getOneBrand = (brand: string) : ActionType => ({
+  type: 'GET_ONE_BRAND',
+  payload: Axios.get('/brands/' + brand)
 })

@@ -5,43 +5,6 @@ import styled from 'styled-components'
 import Brand from './Brand'
 import type { BrandsType } from '../Types'
 
-interface BrandBannerType extends BrandsType{
-  onButtonClick: Function
-}
-
-const BrandBanner = ({brands, pending, error, onButtonClick}: BrandBannerType) => (
-  <BrandContainer>
-    <div>
-      <Button onClick={(event: Event) => {onButtonClick()}}>Click!</Button>
-    </div>
-    {error ? (errorMessage()) : (
-      pending ? (pendingMessage()) : (
-          <BrandList>
-            {brands.map(myBrand =>
-              <Brand key={myBrand.index} name={myBrand.name} imageLocation={myBrand.imageLocation}/>
-            )}
-          </BrandList>
-        )
-      )
-    }
-  </BrandContainer>
-)
-
-const errorMessage = () => (
-  <BrandList>
-    <div>ERROR!!</div>
-  </BrandList>
-)
-
-const pendingMessage = () => (
-  <BrandList>
-    <PendingBox>
-      <img height="50" width="50" src='http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_red_512.gif'
-           alt='wait'/>
-    </PendingBox>
-  </BrandList>
-)
-
 const Button = styled.button`
   font-size: 1.5em;
   text-align: center;
@@ -68,5 +31,42 @@ const BrandList = styled.div`
 const PendingBox = styled.div`
   align-self: center
 `
+
+interface BrandBannerType extends BrandsType{
+  onButtonClick: Function
+}
+
+const errorMessage = () => (
+  <BrandList>
+    <div>ERROR!!</div>
+  </BrandList>
+)
+
+const pendingMessage = () => (
+  <BrandList>
+    <PendingBox>
+      <img height="50" width="50" src='http://www.mytreedb.com/uploads/mytreedb/loader/ajax_loader_red_512.gif'
+           alt='wait'/>
+    </PendingBox>
+  </BrandList>
+)
+
+const BrandBanner = ({brands, pending, error, onButtonClick}: BrandBannerType) => (
+  <BrandContainer>
+    <div>
+      <Button onClick={(event: Event) => {onButtonClick()}}>Click!</Button>
+    </div>
+    {error ? (errorMessage()) : (
+      pending ? (pendingMessage()) : (
+          <BrandList>
+            {brands.map(myBrand =>
+              <Brand key={myBrand.index} name={myBrand.name} imageLocation={myBrand.imageLocation}/>
+            )}
+          </BrandList>
+        )
+      )
+    }
+  </BrandContainer>
+)
 
 export default BrandBanner

@@ -10,6 +10,7 @@ export type BrandsType = {
   pending: boolean
   error: any
   brands: BrandType[]
+  currentbrand: BrandType
 }
 
 export type ActionType <T> = {
