@@ -1,7 +1,7 @@
 // @flow
 
 import { combineReducers } from 'redux'
-import brands from './brands'
+import brands from './Brands'
 
 const brandApp = combineReducers({
   brands

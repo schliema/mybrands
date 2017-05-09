@@ -1,16 +1,18 @@
 // @flow
 
 import * as React from 'react'
+import styled from 'styled-components'
+import type { BrandType } from '../Types'
 
-export type BrandType = {
-  name: string,
-  imageLocation: string
-}
+const BrandItem = styled.div`
+  padding: 1em;
+  flex-grow: 1;
+`
 
 const Brand = ({name, imageLocation}: BrandType) => (
-  <div className="brand">
+  <BrandItem>
     <img src={imageLocation} alt={name}/>
-  </div>
+  </BrandItem>
 )
 
 export default Brand
