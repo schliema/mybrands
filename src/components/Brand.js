@@ -3,7 +3,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import type { BrandType } from '../Types'
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 const Brand = ({name, imageLocation}: BrandType) => {

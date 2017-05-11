@@ -12,13 +12,13 @@ class BrandWrapper extends React.Component {
 
   componentDidMount() {
     if ((!this.props.currentbrand && this.props.brand) ||
-        (this.props.currentbrand && this.props.brand && this.props.currentbrand.name != this.props.brand)) {
+        (this.props.currentbrand && this.props.brand && this.props.currentbrand.name !== this.props.brand)) {
       this.props.load(this.props.brand)
     }
   }
 
   render() {
-    if (this.props.currentbrand && this.props.currentbrand.name == this.props.brand) {
+    if (this.props.currentbrand && this.props.currentbrand.name === this.props.brand) {
       return (
         <PageWrapper>
           <MainWrapper>

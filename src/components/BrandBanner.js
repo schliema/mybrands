@@ -1,6 +1,7 @@
 // @flow
 
 import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 import styled from 'styled-components'
 import Brand from './Brand'
 import type { BrandsType } from '../Types'
@@ -24,22 +25,30 @@ const pendingMessage = () => (
   </MainWrapper>
 )
 
-const BrandBanner = ({brands, pending, error, onButtonClick}: BrandBannerType) => (
-  <div>
-    <MainWrapper>
-      <Button onClick={(event: Event) => {onButtonClick()}}>Click!</Button>
-    </MainWrapper>
-    {error ? (errorMessage()) : (
-      pending ? (pendingMessage()) : (
-          <MainWrapper>
-            {brands.map(myBrand =>
-              <Brand key={myBrand.index} name={myBrand.name} imageLocation={myBrand.imageLocation}/>
-            )}
-          </MainWrapper>
+
+class BrandBanner extends React.Component {
+
+  componentDidMount() {
+    this.props.onButtonClick();
+  }
+
+  render() {
+    return (
+      <div>
+        {this.props.error ? (errorMessage()) : (
+          this.props.pending ? (pendingMessage()) : (
+            <MainWrapper>
+              <Button onClick={(event: Event) => {this.props.onButtonClick()}}>Click!</Button>
+              {this.props.brands.map(myBrand =>
+                <Brand key={myBrand.index} name={myBrand.name} imageLocation={myBrand.imageLocation}/>
+              )}
+            </MainWrapper>
+          )
         )
-      )
-    }
-  </div>
-)
+        }
+      </div>
+    )
+  }
+}
 
 export default BrandBanner

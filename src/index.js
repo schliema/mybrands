@@ -12,7 +12,6 @@ import App from './App'
 import Home from './Home'
 import BrandPage from './BrandPage'
 import PageWrapper from './components/PageWrapper'
-import MainWrapper from './components/MainWrapper'
 import Tab from './components/Tab'
 import Tabs from './components/Tabs'
 
